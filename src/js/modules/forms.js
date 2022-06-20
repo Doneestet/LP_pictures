@@ -1,7 +1,7 @@
 import { postData } from "../services/requests";
 
 
-const forms = () => {
+const forms = (state) => {
     const form = document.querySelectorAll('form'),
           inputs = document.querySelectorAll('input'),
           upload = document.querySelectorAll('[name="upload"]');
@@ -71,6 +71,13 @@ const forms = () => {
             const formData = new FormData(item);
             let api;
 
+            if(item.classList.contains('calc_form')) {
+                for (let key in state) {
+                    formData.append(key, state[key]);
+                    
+                }
+            }
+
             item.closest('.popup_design') || item.classList.contains('calc_form') ? api = path.designer : api = path.question;
             console.log(api);
 
@@ -95,6 +102,8 @@ const forms = () => {
                 });
         });
     });
+
+    
 };
 
 export default forms;
