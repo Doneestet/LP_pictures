@@ -1,5 +1,6 @@
 const accordion = (triggersSelector, itemsSelector) => {
-    const btns = document.querySelectorAll(triggersSelector),
+    const btns = document.querySelectorAll(triggersSelector);
+
           blocks = document.querySelectorAll(itemsSelector);
 
     blocks.forEach(block => {
